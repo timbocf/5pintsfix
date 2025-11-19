@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Media & Web App Development | 5 Pints Productions</title>
+    <meta name="description" content="Professional web development, software engineering, and multimedia services in Mesa, AZ.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --brand-orange: #d48427;
+            --brand-black: #000000;
+            --brand-dark-gray: #121212;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--brand-black);
+            color: #ffffff;
+            padding-top: 76px; /* Offset for fixed navbar */
+        }
+
+        /* --- NAVIGATION --- */
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.95);
+            border-bottom: 1px solid #333;
+        }
+        
+        .navbar-brand img {
+            height: 40px;
+        }
+
+        .nav-link {
+            color: #fff !important;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--brand-orange) !important;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero-section {
+            position: relative;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(to bottom, #000, #1a0f00);
+        }
+
+        /* Video Background Simulation */
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: 0.4;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* --- SECTIONS GENERAL --- */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-weight: 300;
+            font-size: 2.5rem;
+            border-bottom: 2px solid var(--brand-orange);
+            display: inline-block;
+            margin-bottom: 40px;
+            padding-bottom: 10px;
+        }
+
+        /* --- SERVICES CARDS --- */
+        .service-card {
+            background: var(--brand-dark-gray);
+            border: 1px solid #333;
+            padding: 30px;
+            height: 100%;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--brand-orange);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--brand-orange);
+            margin-bottom: 20px;
+        }
+
+        /* --- PORTFOLIO GRID --- */
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 24px;
+            aspect-ratio: 16/9;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.85);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        /* --- BUTTONS --- */
+        .btn-brand {
+            background-color: var(--brand-orange);
+            border-color: var(--brand-orange);
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: 600;
+            padding: 10px 30px;
+        }
+
+        .btn-brand:hover {
+            background-color: #fff;
+            color: var(--brand-orange);
+            border-color: #fff;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--brand-dark-gray);
+            padding: 40px 0;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        footer a {
+            color: var(--brand-orange);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <span class="fw-bold text-white">5 PINTS</span> <span style="color:var(--brand-orange)">PRODUCTIONS</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonials">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-brand ms-lg-3 text-white mt-2 mt-lg-0" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header id="home" class="hero-section">
+        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1920" alt="Abstract Background" class="hero-bg">
+        
+        <div class="hero-content">
+            <h1 class="display-4 fw-light mb-4">GO <span style="color:var(--brand-orange); font-weight: 700;">VISUAL</span></h1>
+            <p class="lead mb-5">Websites. Software. Video Production. App Development.</p>
+            <a href="#portfolio" class="btn btn-brand btn-lg">View Our Work</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="about">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <h2 class="section-title">About Us</h2>
+                        <p class="lead text-white">For over 18 years, 5 Pints Productions has been a trusted provider of multi-media services in Arizona.</p>
+                        <p class="text-secondary">If it moves and can be put on the internet, we can imagine, design, create, build, and deploy it. Our team of experienced designers, developers, and programmers work together to craft innovative digital experiences tailored to your needs.</p>
+                        <ul class="list-unstyled mt-4">
+                            <li class="mb-2"><i class="fas fa-check text-warning me-2"></i> High-quality filming and editing</li>
+                            <li class="mb-2"><i class="fas fa-check text-warning me-2"></i> User-friendly web designs</li>
+                            <li class="mb-2"><i class="fas fa-check text-warning me-2"></i> Scalable web applications</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800" alt="Team working" class="img-fluid rounded shadow-lg" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="bg-black">
+            <div class="container">
+                <h2 class="section-title">Our Services</h2>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="service-card text-center">
+                            <i class="fas fa-laptop-code service-icon"></i>
+                            <h4>Web Development</h4>
+                            <p class="text-secondary small">PHP, MySQL, JavaScript, and custom CMS solutions tailored to your business logic.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="service-card text-center">
+                            <i class="fas fa-pencil-ruler service-icon"></i>
+                            <h4>Creative Design</h4>
+                            <p class="text-secondary small">Logo creation, branding, print, and stunning digital UI/UX design.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="service-card text-center">
+                            <i class="fas fa-mobile-alt service-icon"></i>
+                            <h4>App Development</h4>
+                            <p class="text-secondary small">Progressive Web Apps (PWAs) and native mobile solutions.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="service-card text-center">
+                            <i class="fas fa-video service-icon"></i>
+                            <h4>Video Production</h4>
+                            <p class="text-secondary small">High-quality filming, editing, and post-production services.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio">
+            <div class="container">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="portfolio-item">
+                            <img src="https://placehold.co/600x400/111/orange?text=Soilworks" alt="Soilworks Project" loading="lazy">
+                            <div class="portfolio-overlay">
+                                <h4 class="mb-1">Soilworks</h4>
+                                <p class="text-warning small">Website Design</p>
+                                <a href="#" class="btn btn-outline-light btn-sm">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="portfolio-item">
+                            <img src="https://placehold.co/600x400/111/orange?text=Apex+Fantasy" alt="Apex Project" loading="lazy">
+                            <div class="portfolio-overlay">
+                                <h4 class="mb-1">Apex Fantasy</h4>
+                                <p class="text-warning small">Web Application</p>
+                                <a href="#" class="btn btn-outline-light btn-sm">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="portfolio-item">
+                            <img src="https://placehold.co/600x400/111/orange?text=Dolce+Vita" alt="Dolce Vita Project" loading="lazy">
+                            <div class="portfolio-overlay">
+                                <h4 class="mb-1">Dolce Vita</h4>
+                                <p class="text-warning small">Branding & Web</p>
+                                <a href="#" class="btn btn-outline-light btn-sm">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="portfolio-item">
+                            <img src="https://placehold.co/600x400/111/orange?text=Midwest+Farm" alt="Midwest Farm Project" loading="lazy">
+                            <div class="portfolio-overlay">
+                                <h4 class="mb-1">Midwest Farm Co.</h4>
+                                <p class="text-warning small">Real Estate Portal</p>
+                                <a href="#" class="btn btn-outline-light btn-sm">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="portfolio-item">
+                            <img src="https://placehold.co/600x400/111/orange?text=Evolve+III" alt="Evolve III Project" loading="lazy">
+                            <div class="portfolio-overlay">
+                                <h4 class="mb-1">Evolve III</h4>
+                                <p class="text-warning small">E-Commerce</p>
+                                <a href="#" class="btn btn-outline-light btn-sm">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="portfolio-item">
+                            <img src="https://placehold.co/600x400/111/orange?text=VIP+Airsoft" alt="VIP Airsoft Project" loading="lazy">
+                            <div class="portfolio-overlay">
+                                <h4 class="mb-1">VIP Airsoft</h4>
+                                <p class="text-warning small">Multi-site System</p>
+                                <a href="#" class="btn btn-outline-light btn-sm">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="bg-dark">
+            <div class="container">
+                <div id="testimonialCarousel" class="carousel slide text-center" data-bs-ride="carousel">
+                    <h2 class="section-title">Client Reviews</h2>
+                    <div class="carousel-inner py-5">
+                        <div class="carousel-item active">
+                            <div class="col-md-8 mx-auto">
+                                <p class="fs-5 fst-italic text-white">"The team have always provided us with the highest quality of service! What is equally important to us is the relationship we have built. I would recommend 5 Pints to any organization."</p>
+                                <h5 class="text-warning mt-3">Katie Wing</h5>
+                                <p class="small text-secondary">First Way Pregnancy Center</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="col-md-8 mx-auto">
+                                <p class="fs-5 fst-italic text-white">"We selected 5 Pints Productions based on their clear proposal plus their strong references. We are very glad that we did. The entire team has been a pleasure to work with."</p>
+                                <h5 class="text-warning mt-3">Norma Hubele</h5>
+                                <p class="small text-secondary">The Auto Professor</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2 class="section-title">Get in Touch</h2>
+                <div class="row g-5">
+                    <div class="col-lg-5">
+                        <h3 class="h5 text-warning mb-3">Contact Information</h3>
+                        <p class="text-secondary mb-4">Ready to start your next project? Call us or fill out the form to get started.</p>
+                        
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-phone text-warning me-3 fs-5"></i>
+                            <span>(602) 714-3469</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-map-marker-alt text-warning me-3 fs-5"></i>
+                            <span>4904 South Power Road, Mesa, AZ 85212</span>
+                        </div>
+                        <div class="mt-4">
+                            <a href="#" class="text-secondary me-3 fs-4"><i class="fab fa-facebook"></i></a>
+                            <a href="#" class="text-secondary me-3 fs-4"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-secondary fs-4"><i class="fab fa-vimeo"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-7">
+                        <form class="bg-dark p-4 rounded border border-secondary">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="name" class="form-label text-secondary">Name</label>
+                                    <input type="text" class="form-control bg-black text-white border-secondary" id="name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label text-secondary">Email</label>
+                                    <input type="email" class="form-control bg-black text-white border-secondary" id="email" required>
+                                </div>
+                                <div class="col-12">
+                                    <label for="service" class="form-label text-secondary">Service Interested In</label>
+                                    <select class="form-select bg-black text-white border-secondary" id="service">
+                                        <option selected>Choose...</option>
+                                        <option value="1">Web Development</option>
+                                        <option value="2">Video Production</option>
+                                        <option value="3">Software/App</option>
+                                        <option value="4">Design</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label for="message" class="form-label text-secondary">Message</label>
+                                    <textarea class="form-control bg-black text-white border-secondary" id="message" rows="4"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-brand w-100">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-center">
+        <div class="container">
+            <p class="mb-2">&copy; 2025 5 Pints Productions, LLC. All Rights Reserved.</p>
+            <p class="small">
+                <a href="#" class="me-3">Terms & Privacy Policy</a>
+                <a href="#">Accessibility Statement</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        (() => {
+            'use strict'
+            const forms = document.querySelectorAll('.needs-validation')
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
+    </script>
+</body>
+</html>
