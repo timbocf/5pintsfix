@@ -1,41 +1,98 @@
+:root {
+    --bs-font-sans-serif: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --bs-body-font-family: var(--bs-font-sans-serif);
+    --primary-color: #0d6efd;
+}
+
 body {
     font-family: "Source Sans 3", sans-serif;
     font-optical-sizing: auto;
     font-weight: 300;
     font-style: normal;
+    background-color: #f8f9fa;
+    color: #212529;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-p {
-    font-size: 1rem;
-    font-weight: 300;
+h1,
+h2,
+h3,
+.display-1,
+.display-2,
+.display-3,
+.display-4 {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: -0.02em;
 }
 
-h6 {
-    font-size: 1.25rem;
-    font-weight: 400;
-}
-
-h5 {
-    font-size: 1.5625rem;
-    font-weight: 500;
-}
-
-h4 {
-    font-size: 1.95rem;
-    font-weight: 600;
-}
-
-h3 {
-    font-size: 2.4375rem;
-    font-weight: 700;
-}
-
-h2 {
-    font-size: 3.0469rem;
-    font-weight: 800;
+h4,
+h5,
+h6,
+.navbar-brand {
+    font-family: 'Stack Sans Headline', sans-serif;
 }
 
 h1 {
-    font-size: 3.8086rem;
     font-weight: 900;
+}
+
+h2 {
+    font-weight: 800;
+}
+
+h3 {
+    font-weight: 700;
+}
+
+h4 {
+    font-weight: 600;
+}
+
+h5 {
+    font-weight: 500;
+}
+
+h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.875rem;
+    color: #6c757d;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #495057;
+}
+
+.lead {
+    font-weight: 300;
+    font-size: 1.35rem;
+}
+
+/* Premium touches */
+.card {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+}
+
+.btn {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    padding: 0.6rem 1.5rem;
+    border-radius: 0.5rem;
+    letter-spacing: 0.01em;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: -0.03em;
 }
