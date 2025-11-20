@@ -1,0 +1,41 @@
+body {
+    font-family: "Source Sans 3", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+p {
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+h6 {
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+h5 {
+    font-size: 1.5625rem;
+    font-weight: 500;
+}
+
+h4 {
+    font-size: 1.95rem;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 2.4375rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 3.0469rem;
+    font-weight: 800;
+}
+
+h1 {
+    font-size: 3.8086rem;
+    font-weight: 900;
+}
